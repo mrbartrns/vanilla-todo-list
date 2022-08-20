@@ -15,5 +15,9 @@
   "extends": [
     "airbnb-base",
     "airbnb-base-typescript"
-  ]
+  ],
+  "rules": {
+    "class-methods-use-this": "off",
+    "import/extensions": "off"
+  }
 }
