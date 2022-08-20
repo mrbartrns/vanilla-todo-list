@@ -1,4 +1,4 @@
-import Component from '@components/core';
+import { Component } from '@core/.';
 import { ComponentProps } from '@components/types';
 
 class CounterComponent extends Component<number> {
