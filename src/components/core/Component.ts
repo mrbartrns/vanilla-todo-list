@@ -13,6 +13,7 @@ class Component<T = unknown> {
     this.subscribers = new Set();
     this.setup();
     this.render();
+    this.fetch();
   }
 
   setup() {}
@@ -48,6 +49,8 @@ class Component<T = unknown> {
   publish() {
     this.subscribers.forEach((component) => component.render());
   }
+
+  fetch() {}
 }
 
 export default Component;
