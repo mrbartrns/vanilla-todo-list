@@ -10,6 +10,7 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@core': path.resolve(__dirname, 'src/components/core'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
   entry: './src/index.ts',
