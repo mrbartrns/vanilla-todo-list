@@ -1,6 +1,7 @@
-import Component from '@core/.';
+import { Component } from '@core/.';
 import { ComponentProps } from '@components/types';
 import { onRouteChange } from '@utils/.';
+import HomePage from '@pages/.';
 
 /**
  * ANCHOR: Router 요구 사항
@@ -15,15 +16,16 @@ class Router extends Component {
 
   // ANCHOR: 이 함수는 페이지가 렌더링 된 후, 단 한번만 실행하면 된다.
   setup() {
-    window.addEventListener('popstate', this.render);
-    onRouteChange(this.render);
+    window.addEventListener('popstate', () => this.render());
+    onRouteChange(() => this.render());
   }
 
   render() {
+    console.log('router render');
     const { pathname } = window.location;
 
     if (pathname === '/') {
-      this.node.innerHTML = '<h1>Home Page</h1>';
+      new HomePage({ $target: this.node, initialState: null });
     } else if (pathname === '/posts') {
       this.node.innerHTML = '<h1>Posts Page</h1>';
     } else {
