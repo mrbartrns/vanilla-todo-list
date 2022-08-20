@@ -9,6 +9,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@core': path.resolve(__dirname, 'src/components/core'),
     },
   },
   entry: './src/index.ts',
