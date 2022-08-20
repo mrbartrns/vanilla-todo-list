@@ -1,9 +1,7 @@
+import App from '@/App';
 import './index.css';
 
 const $root = document.querySelector('#root')!!;
 
-$root.innerHTML = `
-  <h1>Hello, World!</h1>
-`;
-
-export {};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const $app = new App({ $target: $root, initialState: null });
