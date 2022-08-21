@@ -13,8 +13,10 @@ class Component<T = unknown> {
     this.subscribers = new Set();
     this.setup();
     this.render();
+    this.fetch();
   }
 
+  // ANCHOR: mount 됬을 때 오직 단 한번만 실행하는 함수
   setup() {}
 
   setState(nextState: T) {
@@ -48,6 +50,8 @@ class Component<T = unknown> {
   publish() {
     this.subscribers.forEach((component) => component.render());
   }
+
+  fetch() {}
 }
 
 export default Component;

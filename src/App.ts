@@ -1,50 +1,22 @@
-import Component from '@components/core';
-import CounterComponent from '@components/domain/number';
+import { Component, Router } from '@core/.';
 import { ComponentProps } from '@components/types';
 
-class App extends Component<number> {
+class App extends Component {
   decrease!: () => void;
 
   increase!: () => void;
 
   constructor({ $target }: ComponentProps) {
-    super({ $target, initialState: 0 });
-  }
-
-  setup(): void {
-    this.decrease = () => {
-      const currentState = this.state;
-      this.setState(currentState - 1);
-    };
-
-    this.increase = () => {
-      const currentState = this.state;
-      this.setState(currentState + 1);
-    };
+    super({ $target, initialState: null });
   }
 
   template(): string {
-    return `
-      <div class="number"></div>
-      <button data-type="decrease">-</button>
-      <button data-type="increase">+</button>
-    `;
-  }
-
-  setEvents(): void {
-    const decreaseButton = this.node.querySelector('[data-type="decrease"]');
-    const increaseButton = this.node.querySelector('[data-type="increase"]');
-
-    decreaseButton?.addEventListener('click', this.decrease);
-    increaseButton?.addEventListener('click', this.increase);
+    return '<div class="App"></div>';
   }
 
   appendChild(): void {
-    // eslint-disable-next-line no-new
-    new CounterComponent({
-      $target: this.node.querySelector('.number')!,
-      initialState: this.state,
-    });
+    const $app = this.node.querySelector('.App');
+    new Router({ $target: $app!, initialState: null });
   }
 }
 
